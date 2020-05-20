@@ -36,6 +36,14 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/SAPGateway",
+      "target": {
+        "type": "destination",
+        "name": "SAPGateway"
+      },
+      "description": "Ehb SAP Gateway (zico)"
     }
   ],
   "sendWelcomeFileRedirect": true
