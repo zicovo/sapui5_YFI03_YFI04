@@ -11,7 +11,6 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf dwp.sapui5_project_YFI03_YFI04.view.detail
 		 */
-
 		onInit: function () {
 
 			this.getOwnerComponent().getRouter().getRoute("detail").attachMatched(this.onRouteMatched, this);
@@ -21,31 +20,48 @@ sap.ui.define([
 		onRouteMatched: function (oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
-			console.log(sPaymentRunId)
-			
-			this.onRead(sPaymentRunId)
+			console.log(sPaymentRunId);
+			this.onRead(sPaymentRunId);
 
+		},
 
-		}, 
-		
-		onRead: function(id){
-			
+		onRead: function (id) {
+
+			var that = this;
 			//perform read operation to get details of 1 entity
-			this.getOwnerComponent().getModel().read("/payment_runSet('" + id +"')", {
+			this.getOwnerComponent().getModel().read("/payment_runSet('" + id + "')", {
 				success: function (oData, oResult) {
 					var oModel_PaymentRun = new JSONModel();
 
 					oModel_PaymentRun.setData(oData);
 					console.log("Odata: " + JSON.stringify(oData))
 
-					console.log(oModel_PaymentRun.oData.Laufd)
+					console.log(oModel_PaymentRun)
+
+
+					that.displayData(oModel_PaymentRun.oData, that);
 
 				},
 				error: function (oError) {
 					console.log(oError)
 				}
 
+
 			});
+
+		},
+
+		displayData: function (oModel, that) {
+			
+			//add values to text fields 
+			
+			that.getView().byId("txtLaufi").setText(oModel.Laufi === "" ? "N/a" : oModel.Laufi);
+			that.getView().byId("txtLaufd").setText(oModel.Laufd === "" ? "N/a" : oModel.Laufd);
+			that.getView().byId("txtZbukr").setText(oModel.Zbukr === "" ? "N/a" : oModel.Zbukr);
+			that.getView().byId("txtLifnr").setText(oModel.Lifnr === "" ? "N/a" : oModel.Lifnr);
+			that.getView().byId("txtKunnr").setText(oModel.Kunnr === "" ? "N/a" : oModel.Kunnr);
+			that.getView().byId("txtEmpfg").setText(oModel.Empfg === "" ? "N/a" : oModel.Empfg);
+			that.getView().byId("txtVblnr").setText(oModel.Vblnr === "" ? "N/a" : oModel.Vblnr);
 		}
 
 		/**
