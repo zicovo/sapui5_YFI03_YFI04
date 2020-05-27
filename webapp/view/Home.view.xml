@@ -10,7 +10,7 @@
 								<content>
 									<Title text="Payment runs" level="H2"/>
 									<ToolbarSpacer/>
-									<SearchField placeholder="{i18n>FilterOnID}" value="{ui>/globalFilter}" search="onFilterID" width="15rem"/>
+									<SearchField placeholder="{i18n>FilterOnID}" search="onFilterID" width="15rem"/>
 								</content>
 							</OverflowToolbar>
 						</headerToolbar>

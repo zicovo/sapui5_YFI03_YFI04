@@ -47,9 +47,9 @@ sap.ui.define([
 			var aFilters = [];
 			var sQuery = oEvent.getParameter("query");
 			console.log(oEvent);
-
+			console.log(this.getView().getModel());
 			if (sQuery && sQuery.length > 0) {
-				var oFilter = new sap.ui.model.Filter("Laufi", sap.ui.model.FilterOperator.Contains, sQuery);
+				var oFilter = new Filter("/payment_run/>Laufi",FilterOperator.Contains, sQuery);
 				aFilters.push(oFilter);
 			}
 			//create table binding

@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageToast"
+], function (Controller, JSONModel,MessageToast) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Detail", {
@@ -15,6 +16,13 @@ sap.ui.define([
 
 			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
 
+		},
+		
+		onYFI03: function(){
+			MessageToast.show("Oops! Not implemented yet!");
+		},
+		onYFI04: function(){
+			MessageToast.show("Oops! Not implemented yet!²");
 		},
 
 		onRouteMatched: function (oEvent) {
