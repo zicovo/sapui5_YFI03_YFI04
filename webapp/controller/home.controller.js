@@ -35,6 +35,11 @@ sap.ui.define([
 				
 			// }
 		}
+		onFilterID: function(oEvent){
+			var aFilter = [];
+			var sQuery = oEvent.getParameter("query")
+			
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

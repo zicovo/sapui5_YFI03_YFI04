@@ -2,7 +2,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
-			<Page title="YFI03:Payment Medium: Reorganisation of Payment Data">
+			<Page title="{i18n>YFIO3Title}">
 				<content>
 					<Table id="idPaymentRunTable" inset="false" items="{ path: '/payment_runSet', sorter: { path: 'Laufi' } }">
 						<headerToolbar>
@@ -10,6 +10,7 @@
 								<content>
 									<Title text="Payment runs" level="H2"/>
 									<ToolbarSpacer/>
+									<SearchField placeholder="{i18n>FilterOnID}" value="{ui>/globalFilter}" search="onFilterID" width="15rem"/>
 								</content>
 							</OverflowToolbar>
 						</headerToolbar>
@@ -21,25 +22,25 @@
 								<Text text="Run On"/>
 							</Column>
 							<Column demandPopin="true">
-								 <Text text="Paying co. code"/>
-						</Column>
-						<Column demandPopin="true">
-							<Text text="Vendor"/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem type="Navigation" press="showDetails">
-						<cells>
-							<Text text="{Laufi}"/>
-							<Text text="{Laufd}"/>
-							<Text text="{Zbukr}"/>
-							<Text text="{Lifnr}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</content>
-	</Page>
-</pages>
-</App>
+								<Text text="Paying co. code"/>
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Vendor"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="showDetails">
+								<cells>
+									<Text text="{Laufi}"/>
+									<Text text="{Laufd}"/>
+									<Text text="{Zbukr}"/>
+									<Text text="{Lifnr}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
 </mvc:View>
