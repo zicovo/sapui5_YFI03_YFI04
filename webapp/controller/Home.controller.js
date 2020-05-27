@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Controller, Dialog, JSONModel) {
 	"use strict";
 
-	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.home", {
+	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Home", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -29,11 +29,16 @@ sap.ui.define([
 			console.log(oPayment_run.Laufi);
 		
 			
-			this.getOwnerComponent().getRouter().navTo("detail", {
+			this.getOwnerComponent().getRouter().navTo("Detail", {
 				paymentRunId: oPayment_run.Laufi
 			});
 				
 			// }
+		},
+		onFilterID: function(oEvent){
+			var aFilter = [];
+			var sQuery = oEvent.getParameter("query");
+			
 		}
 
 		/**

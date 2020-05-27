@@ -93,15 +93,15 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "home",
+				"name": "Home",
 				"pattern": "",
-				"target": ["home"]
+				"target": ["Home"]
 			}, {
-				"name": "detail",
+				"name": "Detail",
 				"pattern": "{paymentRunId}",
 				"titleTarget": "",
 				"greedy": false,
-				"target": ["detail"]
+				"target": ["Detail"]
 			}],
 			"targets": {
 				"TargetApp": {
@@ -111,13 +111,13 @@
 					"viewId": "App",
 					"viewName": "App"
 				},
-				"home": {
+				"Home": {
 					"viewType": "XML",
-					"viewName": "home"
+					"viewName": "Home"
 				},
-				"detail": {
+				"Detail": {
 					"viewType": "XML",
-					"viewName": "detail"
+					"viewName": "Detail"
 				}
 			}
 		}
