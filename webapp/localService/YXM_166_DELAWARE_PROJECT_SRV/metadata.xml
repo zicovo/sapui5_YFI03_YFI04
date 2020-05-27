@@ -1,9 +1,10 @@
-<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
-	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YXM_166_DELAWARE_PROJECT_SRV" xml:lang="en" sap:schema-version="1">
+		<Schema Namespace="YXM_166_DELAWARE_PROJECT_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityType Name="payment_run" sap:content-version="1">
-				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Laufd"/><PropertyRef Name="Laufi"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Client" sap:creatable="false" sap:updatable="false"
+				<Key><PropertyRef Name="Laufi"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Client" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/><Property Name="Laufd" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Run On" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/><Property Name="Laufi" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Identification" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Xvorl" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Indicator: Only Proposal Run?" sap:creatable="false"
@@ -19,6 +20,10 @@
 					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Xdele" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Indicator: Production Run Data Deleted"
 					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
 			<EntityContainer Name="YXM_166_DELAWARE_PROJECT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="payment_runSet" EntityType="YXM_166_DELAWARE_PROJECT_SRV.payment_run" sap:creatable="false" sap:updatable="false"
-				sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/sap/YXM_166_DELAWARE_PROJECT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/sap/YXM_166_DELAWARE_PROJECT_SRV/$metadata"/></Schema>
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self"
+				href="https://webidecp-p2001825937trial.dispatcher.hanatrial.ondemand.com/destinations/SAPGateway/sap/opu/odata/sap/YXM_166_DELAWARE_PROJECT_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-p2001825937trial.dispatcher.hanatrial.ondemand.com/destinations/SAPGateway/sap/opu/odata/sap/YXM_166_DELAWARE_PROJECT_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

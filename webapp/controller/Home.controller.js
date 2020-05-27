@@ -1,8 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/Dialog",
-	"sap/ui/model/json/JSONModel"
-], function (Controller, Dialog, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"sap/m/ToolbarSpacer"
+], function (Controller, Dialog, JSONModel, Filter, FilterOperator, ToolbarSpacer) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Home", {
@@ -12,33 +15,51 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf dwp.sapui5_project_YFI03_YFI04.view.home
 		 */
-		 
-		 
-		 
+
 		onInit: function () {
+			// var oView=this.getView();
+
+			// var oJSONModel = this.initSampleDataModel();
+			// oView.setModel(new JSONModel({
+			// 	globalFilter:"",
+			// 	availabilityFilterOn:false,
+			// 	cellFilterOn:false
+			// }),"ui");
 
 		},
-		
+
 		pressDialog: null,
-		
+
 		showDetails: function (oEvent) {
-			
+
 			var context = oEvent.getSource().getBindingContext();
 			var oPayment_run = context.getObject(context.getPath());
-			
+
 			console.log(oPayment_run.Laufi);
-		
-			
+
 			this.getOwnerComponent().getRouter().navTo("Detail", {
 				paymentRunId: oPayment_run.Laufi
 			});
-				
+
 			// }
 		},
-		onFilterID: function(oEvent){
-			var aFilter = [];
+		onFilterID: function (oEvent) {
+			var aFilters = [];
 			var sQuery = oEvent.getParameter("query");
+			console.log(oEvent);
+
+			if (sQuery && sQuery.length > 0) {
+				var oFilter = new sap.ui.model.Filter("Laufi", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(oFilter);
+			}
+			//create table binding
+			var oTable = this.getView().byId("idPaymentRunTable");
+			console.log(oTable);
+			var oBinding = oTable.getBinding("items"); 
+			console.log(oBinding);
 			
+			oBinding.filter(aFilters);
+
 		}
 
 		/**

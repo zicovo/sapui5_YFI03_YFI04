@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller, JSONModel) {
 	"use strict";
 
-	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.detail", {
+	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Detail", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -13,7 +13,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 
-			this.getOwnerComponent().getRouter().getRoute("detail").attachMatched(this.onRouteMatched, this);
+			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
 
 		},
 
