@@ -2,7 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast"
-], function (Controller, JSONModel,MessageToast) {
+], function (Controller, JSONModel, MessageToast) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Detail", {
@@ -12,23 +12,26 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf dwp.sapui5_project_YFI03_YFI04.view.detail
 		 */
+		_sPaymentRunId: "",
+
 		onInit: function () {
 
 			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
 
 		},
-		
-		onYFI03: function(){
+
+		onYFI03: function (oEvent) {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("XMLDeleteResult");
 			MessageToast.show("Oops! Not implemented yet!");
-		},
-		onYFI04: function(){
-			MessageToast.show("Oops! Not implemented yet!²");
+
 		},
 
 		onRouteMatched: function (oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
 			console.log(sPaymentRunId);
+			this._sPaymentRunId = sPaymentRunId;
 			this.onRead(sPaymentRunId);
 
 		},
@@ -46,7 +49,6 @@ sap.ui.define([
 
 					console.log(oModel_PaymentRun)
 
-
 					that.displayData(oModel_PaymentRun.oData, that);
 
 				},
@@ -54,15 +56,14 @@ sap.ui.define([
 					console.log(oError)
 				}
 
-
 			});
 
 		},
 
 		displayData: function (oModel, that) {
-			
+
 			//add values to text fields 
-			
+
 			that.getView().byId("txtLaufi").setText(oModel.Laufi === "" ? "N/a" : oModel.Laufi);
 			that.getView().byId("txtLaufd").setText(oModel.Laufd === "" ? "N/a" : oModel.Laufd);
 			that.getView().byId("txtZbukr").setText(oModel.Zbukr === "" ? "N/a" : oModel.Zbukr);

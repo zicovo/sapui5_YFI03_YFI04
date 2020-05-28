@@ -5,38 +5,31 @@
 		<pages>
 			<Page>
 				<content>
-					<IconTabBar id="idTopLevelIconTabBar" class="sapUiResponsiveContentPadding">
-						<items>
-							<IconTabFilter text="YFI-03">
-								<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Payment run details:" labelSpanXL="3" labelSpanL="3"
-									labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
-									columnsL="1" columnsM="1" singleContainerFullSize="false">
-									<f:content>
-										<Label text="Identificator"/>
-										<Text id="txtLaufi"/>
-										<Label text="Run on"/>
-										<Text id="txtLaufd"/>
-										<Label text="Paying company code"/>
-										<Text id="txtZbukr"/>
-										<Label text="Vendor"/>
-										<Text id="txtLifnr"/>
-										<Label text="Customer"/>
-										<Text id="txtKunnr"/>
-										<Label text="Payment recipient"/>
-										<Text id="txtEmpfg"/>
-										<Label text="Payment doc number"/>
-										<Text id="txtVblnr"/>
-									</f:content>
-								</f:SimpleForm>
-								<Toolbar>
-									<ToolbarSpacer/>
-									<Button type="Reject" text="Delete payment-XML files" press="onYFI03"/>
-									<Button type="Reject" text="Reverse FICO-postings" press="onYFI04"/>
-								</Toolbar>
-							</IconTabFilter>
-							<IconTabFilter text="YFI-04"></IconTabFilter>
-						</items>
-					</IconTabBar>
+					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Payment run details:" labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Identificator"/>
+							<Text id="txtLaufi"/>
+							<Label text="Run on"/>
+							<Text id="txtLaufd"/>
+							<Label text="Paying company code"/>
+							<Text id="txtZbukr"/>
+							<Label text="Vendor"/>
+							<Text id="txtLifnr"/>
+							<Label text="Customer"/>
+							<Text id="txtKunnr"/>
+							<Label text="Payment recipient"/>
+							<Text id="txtEmpfg"/>
+							<Label text="Payment doc number"/>
+							<Text id="txtVblnr"/>
+						</f:content>
+					</f:SimpleForm>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button type="Reject" text="Delete payment-XML files" press="onYFI03"/>
+					
+					</Toolbar>
 				</content>
 			</Page>
 		</pages>
