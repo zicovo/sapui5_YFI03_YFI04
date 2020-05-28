@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+], function (Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.XMLDeleteResult", {
@@ -11,7 +12,8 @@ sap.ui.define([
 		 * @memberOf dwp.sapui5_project_YFI03_YFI04.view.XMLDeleteResult
 		 */
 		onInit: function () {
-			this.getOwnerComponent().getRouter().getRoute("XMLDeleteResult").attachPatternMatched(this._handleRouteMatched, this);
+			
+			this.getOwnerComponent().getRouter().getRoute("XMLDeleteResult").attachMatched(this._handleRouteMatched, this);
 		},
 
 		onYFI04: function () {
@@ -20,9 +22,53 @@ sap.ui.define([
 				paymentRunId: oPayment_run.Laufi
 			});
 		},
-		_handleRouteMatched: function () {
-				console.log("WERK KUT DING");
-			}
+		_handleRouteMatched: function (oEvent) {
+			
+			var oArguments = oEvent.getParameter("arguments");
+			var sPaymentRunId = oArguments.paymentRunId;
+			console.log(sPaymentRunId);
+			this._sPaymentRunId = sPaymentRunId;
+			this.onRead(sPaymentRunId);
+			},
+			
+			onRead: function (id) {
+
+			var that = this;
+			//perform read operation to get details of 1 entity
+			this.getOwnerComponent().getModel().read("/payment_runSet('" + id + "')", {
+				success: function (oData, oResult) {
+					var oModel_PaymentRun = new JSONModel();
+
+					oModel_PaymentRun.setData(oData);
+					console.log("Odata: " + JSON.stringify(oData))
+
+					console.log(oModel_PaymentRun)
+					
+					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
+					console.log($.sap.paymentRunId);
+					that.displayData(oModel_PaymentRun.oData, that);
+
+				},
+				error: function (oError) {
+					console.log(oError)
+				}
+
+			});
+
+		},
+
+		displayData: function (oModel, that) {
+
+			//add values to text fields 
+
+			that.getView().byId("txtLaufi").setText(oModel.Laufi === "" ? "N/a" : oModel.Laufi);
+			that.getView().byId("txtLaufd").setText(oModel.Laufd === "" ? "N/a" : oModel.Laufd);
+			that.getView().byId("txtZbukr").setText(oModel.Zbukr === "" ? "N/a" : oModel.Zbukr);
+			that.getView().byId("txtLifnr").setText(oModel.Lifnr === "" ? "N/a" : oModel.Lifnr);
+			that.getView().byId("txtKunnr").setText(oModel.Kunnr === "" ? "N/a" : oModel.Kunnr);
+			that.getView().byId("txtEmpfg").setText(oModel.Empfg === "" ? "N/a" : oModel.Empfg);
+			that.getView().byId("txtVblnr").setText(oModel.Vblnr === "" ? "N/a" : oModel.Vblnr);
+		}
 			// onRouteMatched: function (oEvent) {
 			// 	var oArguments = oEvent.getParameter("arguments");
 			// 	var sPaymentRunId = oArguments.paymentRunId;
