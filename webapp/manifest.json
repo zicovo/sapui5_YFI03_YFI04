@@ -98,16 +98,16 @@
 				"target": ["Home"]
 			}, {
 				"name": "Detail",
-				"pattern": "{paymentRunId}",
+				"pattern": "Detail/{paymentRunId}",
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["Detail"]
 			}, {
 				"name": "XMLDeleteResult",
-				"pattern": "",
+				"pattern": "Detail/XMLDeleteResult/{paymentRunId}",
 				"titleTarget": "",
 				"greedy": false,
-				"target": ["Detail", "XMLDeleteResult"]
+				"target": ["XMLDeleteResult"]
 			}],
 			"targets": {
 				"TargetApp": {

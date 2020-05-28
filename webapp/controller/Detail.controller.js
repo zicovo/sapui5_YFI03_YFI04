@@ -16,15 +16,23 @@ sap.ui.define([
 
 		onInit: function () {
 
+			$.sap.paymentRunId = 0;
+
 			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
+			
+			
 
 		},
 
-		onYFI03: function (oEvent) {
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("XMLDeleteResult");
-			MessageToast.show("Oops! Not implemented yet!");
-
+		onYFI03: function () {
+			// var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			// oRouter.navTo("XMLDeleteResult");
+			// MessageToast.show("Oops! Not implemented yet!");
+			
+		
+			this.getOwnerComponent().getRouter().navTo("XMLDeleteResult", {
+				paymentRunId: $.sap.paymentRunId
+			});
 		},
 
 		onRouteMatched: function (oEvent) {
@@ -48,7 +56,9 @@ sap.ui.define([
 					console.log("Odata: " + JSON.stringify(oData))
 
 					console.log(oModel_PaymentRun)
-
+					
+					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
+					console.log($.sap.paymentRunId);
 					that.displayData(oModel_PaymentRun.oData, that);
 
 				},

@@ -15,7 +15,10 @@ sap.ui.define([
 		},
 
 		onYFI04: function () {
-			MessageToast.show("Oops! Not implemented yet!²");
+			//MessageToast.show("Oops! Not implemented yet!²");
+				this.getOwnerComponent().getRouter().navTo("Detail", {
+				paymentRunId: oPayment_run.Laufi
+			});
 		},
 		_handleRouteMatched: function () {
 				console.log("WERK KUT DING");
