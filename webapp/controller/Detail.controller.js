@@ -29,7 +29,19 @@ sap.ui.define([
 			// oRouter.navTo("XMLDeleteResult");
 			// MessageToast.show("Oops! Not implemented yet!");
 			
-			
+			this.getOwnerComponent().getModel().remove("/payment_runSet('" + $.sap.paymentRunId + "')", {
+				method : "DELETE",
+				success: function(odata, response){
+					if(odata !== "" || odata !== undefined){
+						console.log("Successful ahjaaaaaaaaaa");
+						// MessageBox.success("Deleted successfully.");
+					}else{
+						console.log("Unsuccessful ahjaaaa, wa dacht ge nu!");
+						// MessageBox.error("Unable to delete.");
+					}
+				} 
+		
+			});
 			
 			this.getOwnerComponent().getRouter().navTo("XMLDeleteResult", {
 				paymentRunId: $.sap.paymentRunId
@@ -59,7 +71,9 @@ sap.ui.define([
 					console.log(oModel_PaymentRun)
 					
 					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
+					$.sap.paymentRunDate = oModel_PaymentRun.oData.Laufd;
 					console.log($.sap.paymentRunId);
+					console.log($.sap.paymentRunDate);
 					that.displayData(oModel_PaymentRun.oData, that);
 
 				},
