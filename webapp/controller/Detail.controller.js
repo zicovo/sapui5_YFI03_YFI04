@@ -29,7 +29,8 @@ sap.ui.define([
 			// oRouter.navTo("XMLDeleteResult");
 			// MessageToast.show("Oops! Not implemented yet!");
 			
-		
+			
+			
 			this.getOwnerComponent().getRouter().navTo("XMLDeleteResult", {
 				paymentRunId: $.sap.paymentRunId
 			});
