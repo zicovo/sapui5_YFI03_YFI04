@@ -1,10 +1,11 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	controllerName="dwp.sapui5_project_YFI03_YFI04.controller.XMLDeleteResult" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	controllerName="dwp.sapui5_project_YFI03_YFI04.controller.XMLDeleteResult" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form">
 	<App>
 		<pages>
 			<Page title="YFI04">
 				<content>
-						<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Payment run details:" labelSpanXL="3" labelSpanL="3"
+					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Payment run details:" labelSpanXL="3" labelSpanL="3"
 						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
 						columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
@@ -22,6 +23,14 @@
 							<Text id="txtEmpfg"/>
 							<Label text="Payment doc number"/>
 							<Text id="txtVblnr"/>
+							<Label text="Reversal reason"/>
+							<ComboBox required="true" tooltip="Select Reversal Reason" value="Reversal Reason" items="" width="30rem">
+								<core:Item key="01" text="Reversal in current period"/>
+								<core:Item key="02" text="Reversal in closed period"/>
+								<core:Item key="03" text="Actual reversal in current period"/>
+								<core:Item key="04" text="Actual reversal in closed period"/>
+								<core:Item key="05" text="Accrual/deferral postings"/>
+							</ComboBox>
 						</f:content>
 					</f:SimpleForm>
 					<Toolbar>
