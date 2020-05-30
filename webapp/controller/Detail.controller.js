@@ -32,8 +32,10 @@ sap.ui.define([
 			this.getOwnerComponent().getModel().remove("/payment_runSet('" + $.sap.paymentRunId + "')", {
 				method : "DELETE",
 				success: function(odata, response){
-					if(odata !== "" || odata !== undefined){
+					if(odata){
 						console.log("Successful ahjaaaaaaaaaa");
+						console.log("This is odata: ");
+						console.log(odata);
 						// MessageBox.success("Deleted successfully.");
 					}else{
 						console.log("Unsuccessful ahjaaaa, wa dacht ge nu!");
