@@ -34,6 +34,8 @@ sap.ui.define([
 				success: function(odata, response){
 					if(odata !== "" || odata !== undefined){
 						console.log("Successful ahjaaaaaaaaaa");
+						console.log('success odata: ' + odata)
+						console.log('success response: ' + JSON.stringify(response))
 						// MessageBox.success("Deleted successfully.");
 					}else{
 						console.log("Unsuccessful ahjaaaa, wa dacht ge nu!");

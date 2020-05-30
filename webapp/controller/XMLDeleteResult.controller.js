@@ -26,7 +26,7 @@ sap.ui.define([
 			
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
-			console.log(sPaymentRunId);
+		
 			this._sPaymentRunId = sPaymentRunId;
 			this.onRead(sPaymentRunId);
 			},
@@ -40,12 +40,8 @@ sap.ui.define([
 					var oModel_PaymentRun = new JSONModel();
 
 					oModel_PaymentRun.setData(oData);
-					console.log("Odata: " + JSON.stringify(oData))
-
-					console.log(oModel_PaymentRun)
-					
+			
 					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
-					console.log($.sap.paymentRunId);
 					that.displayData(oModel_PaymentRun.oData, that);
 
 				},
