@@ -16,16 +16,16 @@
 						</headerToolbar>
 						<columns>
 							<Column width="12em">
-								<Text text="Identification"/>
+								<Text text="{i18n>Laufi}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Run On"/>
+								<Text text="{i18n>Laufd}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Paying co. code"/>
+								<Text text="{i18n>Zbukr}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Vendor"/>
+								<Text text="{i18n>Lifnr}"/>
 							</Column>
 						</columns>
 						<items>
