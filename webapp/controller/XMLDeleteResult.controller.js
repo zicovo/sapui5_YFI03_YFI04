@@ -49,7 +49,7 @@ sap.ui.define([
 
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
-			console.log(sPaymentRunId);
+		
 			this._sPaymentRunId = sPaymentRunId;
 			this.onRead(sPaymentRunId);
 		},

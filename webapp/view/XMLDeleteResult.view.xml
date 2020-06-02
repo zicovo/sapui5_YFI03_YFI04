@@ -3,25 +3,25 @@
 	xmlns:f="sap.ui.layout.form">
 	<App>
 		<pages>
-			<Page title="YFI04">
+			<Page title="{i18n>YFI04Title}">
 				<content>
-					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="Payment run details:" labelSpanXL="3" labelSpanL="3"
+					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>DetailTitle}" labelSpanXL="3" labelSpanL="3"
 						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
 						columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
-							<Label text="Identificator"/>
+							<Label text="{i18n>Laufi}"/>
 							<Text id="txtLaufi"/>
-							<Label text="Run on"/>
+							<Label text="{i18n>Laufd}"/>
 							<Text id="txtLaufd"/>
-							<Label text="Paying company code"/>
+							<Label text="{i18n>Zbukr}"/>
 							<Text id="txtZbukr"/>
-							<Label text="Vendor"/>
+							<Label text="{i18n>Lifnr}"/>
 							<Text id="txtLifnr"/>
-							<Label text="Customer"/>
+							<Label text="{i18n>Kunnr}"/>
 							<Text id="txtKunnr"/>
-							<Label text="Payment recipient"/>
+							<Label text="{i18n>Empfg}"/>
 							<Text id="txtEmpfg"/>
-							<Label text="Payment doc number"/>
+							<Label text="{i18n>Vblnr}"/>
 							<Text id="txtVblnr"/>
 							<Label text="Reversal reason"/>
 							<ComboBox required="true" tooltip="Select Reversal Reason" value="Reversal Reason" items="" width="30rem" id="ReversalReason">
