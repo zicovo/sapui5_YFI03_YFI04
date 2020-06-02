@@ -27,7 +27,7 @@
 					</f:SimpleForm>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button type="Reject" text="Delete payment-XML files" press="onYFI03"/>
+						<Button type="Emphasized" text="Delete payment-XML files" press="onYFI03"/>
 					</Toolbar>
 				</content>
 			</Page>

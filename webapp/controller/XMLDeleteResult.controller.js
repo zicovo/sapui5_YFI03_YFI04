@@ -63,7 +63,6 @@ sap.ui.define([
 					var oModel_PaymentRun = new JSONModel();
 
 					oModel_PaymentRun.setData(oData);
-					console.log("Odata: " + JSON.stringify(oData))
 
 					console.log(oModel_PaymentRun)
 

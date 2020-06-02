@@ -24,7 +24,7 @@
 							<Label text="{i18n>Vblnr}"/>
 							<Text id="txtVblnr"/>
 							<Label text="Reversal reason"/>
-							<ComboBox required="true" tooltip="Select Reversal Reason" value="Reversal Reason" items="" width="30rem" id="ReversalReason">
+							<ComboBox required="true" tooltip="Select Reversal Reason" items="" width="30rem" id="ReversalReason">
 								<core:Item key="01" text="Reversal in current period"/>
 								<core:Item key="02" text="Reversal in closed period"/>
 								<core:Item key="03" text="Actual reversal in current period"/>
@@ -35,7 +35,7 @@
 					</f:SimpleForm>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button type="Reject" text="Reverse FICO-postings" press="onYFI04"/>
+						<Button type="Emphasized" text="Reverse FICO-postings" press="onYFI04"/>
 					</Toolbar>
 				</content>
 			</Page>
