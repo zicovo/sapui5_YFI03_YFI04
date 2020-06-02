@@ -12,26 +12,49 @@ sap.ui.define([
 		 * @memberOf dwp.sapui5_project_YFI03_YFI04.view.XMLDeleteResult
 		 */
 		onInit: function () {
-			
+
 			this.getOwnerComponent().getRouter().getRoute("XMLDeleteResult").attachMatched(this._handleRouteMatched, this);
 		},
 
 		onYFI04: function () {
 			//MessageToast.show("Oops! Not implemented yet!²");
-				this.getOwnerComponent().getRouter().navTo("Detail", {
-				paymentRunId: oPayment_run.Laufi
+			// this.getOwnerComponent().getRouter().navTo("Detail", {
+			// 	paymentRunId: oPayment_run.Laufi
+			// });
+			var oEntry = {};
+
+			oEntry.Laufi = $.sap.paymentRunId;
+			oEntry.Laufd = $.sap.paymentRunDate;
+			oEntry.Revreason = this.getView().byId("ReversalReason").getSelectedKey();
+
+			console.log("YFI04 ID: " + oEntry.Laufi);
+			console.log("YFI04 Date: " + oEntry.Laufd);
+			console.log("YFI04 Reversal Reason: " + oEntry.Revreason);
+
+			this.getOwnerComponent().getModel().update("/payment_runSet('" + oEntry.Laufi + "')", oEntry, {
+				method: "PUT",
+				success: function (odata) {
+					alert("success");
+					console.log("Success in YFI04: ");
+					console.log(odata);
+				},
+				error: function (e) {
+					console.log("Error in YFI04");
+					alert("error");
+				}
 			});
 		},
+
 		_handleRouteMatched: function (oEvent) {
-			
+
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
 			console.log(sPaymentRunId);
 			this._sPaymentRunId = sPaymentRunId;
 			this.onRead(sPaymentRunId);
-			},
-			
-			onRead: function (id) {
+		},
+
+		onRead: function (id) {
 
 			var that = this;
 			//perform read operation to get details of 1 entity
@@ -43,8 +66,9 @@ sap.ui.define([
 					console.log("Odata: " + JSON.stringify(oData))
 
 					console.log(oModel_PaymentRun)
-					
+
 					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
+					$.sap.paymentRunDate = oModel_PaymentRun.oData.Laufd;
 					console.log($.sap.paymentRunId);
 					that.displayData(oModel_PaymentRun.oData, that);
 
@@ -59,16 +83,16 @@ sap.ui.define([
 
 		displayData: function (oModel, that) {
 
-			//add values to text fields 
+				//add values to text fields 
 
-			that.getView().byId("txtLaufi").setText(oModel.Laufi === "" ? "N/a" : oModel.Laufi);
-			that.getView().byId("txtLaufd").setText(oModel.Laufd === "" ? "N/a" : oModel.Laufd);
-			that.getView().byId("txtZbukr").setText(oModel.Zbukr === "" ? "N/a" : oModel.Zbukr);
-			that.getView().byId("txtLifnr").setText(oModel.Lifnr === "" ? "N/a" : oModel.Lifnr);
-			that.getView().byId("txtKunnr").setText(oModel.Kunnr === "" ? "N/a" : oModel.Kunnr);
-			that.getView().byId("txtEmpfg").setText(oModel.Empfg === "" ? "N/a" : oModel.Empfg);
-			that.getView().byId("txtVblnr").setText(oModel.Vblnr === "" ? "N/a" : oModel.Vblnr);
-		}
+				that.getView().byId("txtLaufi").setText(oModel.Laufi === "" ? "N/a" : oModel.Laufi);
+				that.getView().byId("txtLaufd").setText(oModel.Laufd === "" ? "N/a" : oModel.Laufd);
+				that.getView().byId("txtZbukr").setText(oModel.Zbukr === "" ? "N/a" : oModel.Zbukr);
+				that.getView().byId("txtLifnr").setText(oModel.Lifnr === "" ? "N/a" : oModel.Lifnr);
+				that.getView().byId("txtKunnr").setText(oModel.Kunnr === "" ? "N/a" : oModel.Kunnr);
+				that.getView().byId("txtEmpfg").setText(oModel.Empfg === "" ? "N/a" : oModel.Empfg);
+				that.getView().byId("txtVblnr").setText(oModel.Vblnr === "" ? "N/a" : oModel.Vblnr);
+			}
 			// onRouteMatched: function (oEvent) {
 			// 	var oArguments = oEvent.getParameter("arguments");
 			// 	var sPaymentRunId = oArguments.paymentRunId;

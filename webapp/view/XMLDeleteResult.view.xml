@@ -24,7 +24,7 @@
 							<Label text="Payment doc number"/>
 							<Text id="txtVblnr"/>
 							<Label text="Reversal reason"/>
-							<ComboBox required="true" tooltip="Select Reversal Reason" value="Reversal Reason" items="" width="30rem">
+							<ComboBox required="true" tooltip="Select Reversal Reason" value="Reversal Reason" items="" width="30rem" id="ReversalReason">
 								<core:Item key="01" text="Reversal in current period"/>
 								<core:Item key="02" text="Reversal in closed period"/>
 								<core:Item key="03" text="Actual reversal in current period"/>
