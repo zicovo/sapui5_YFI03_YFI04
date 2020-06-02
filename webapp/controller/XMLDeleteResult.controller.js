@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
-], function (Controller, JSONModel) {
+	"sap/m/MessageToast"
+], function (Controller, JSONModel, MessageToast) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.XMLDeleteResult", {
@@ -24,32 +25,47 @@ sap.ui.define([
 			var oEntry = {};
 
 			oEntry.Laufi = $.sap.paymentRunId;
-			oEntry.Laufd = $.sap.paymentRunDate;
-			oEntry.Revreason = this.getView().byId("ReversalReason").getSelectedKey();
+			// oEntry.Laufd = $.sap.paymentRunDate;
+			// oEntry.Revreason = this.getView().byId("ReversalReason").getSelectedKey();
+			let Revreason = this.getView().byId("ReversalReason").getSelectedKey();
 
 			console.log("YFI04 ID: " + oEntry.Laufi);
-			console.log("YFI04 Date: " + oEntry.Laufd);
-			console.log("YFI04 Reversal Reason: " + oEntry.Revreason);
+			// console.log("YFI04 Date: " + oEntry.Laufd);
+			// console.log("YFI04 Reversal Reason: " + oEntry.Revreason);
 
-			this.getOwnerComponent().getModel().update("/payment_runSet('" + oEntry.Laufi + "')", oEntry, {
-				method: "PUT",
-				success: function (odata) {
-					alert("success");
-					console.log("Success in YFI04: ");
-					console.log(odata);
-				},
-				error: function (e) {
-					console.log("Error in YFI04");
-					alert("error");
-				}
-			});
+			var that = this;
+
+			if (!Revreason) {
+				this.getView().byId("requiredErrorMsg").setText("Please fill in all required fields!");
+			} else {
+				this.getOwnerComponent().getModel().update("/payment_runSet('" + oEntry.Laufi + "')", oEntry, {
+					method: "PUT",
+					success: function (odata, response) {
+						MessageToast.show("Successfully reversed payment run! Returning to home...");
+						console.log("Success in YFI04: ");
+						console.log(odata);
+						console.log(response);
+						setTimeout(
+							() => {
+								that.getOwnerComponent().getRouter().navTo("Home");
+							}, 3000
+						);
+					},
+					error: function (e) {
+						console.log("Error in YFI04");
+						MessageToast.show("Failed to reverse payment run!");
+						that.getOwnerComponent().getRouter().navTo("Home");
+					}
+				});
+			}
+
 		},
 
 		_handleRouteMatched: function (oEvent) {
 
 			var oArguments = oEvent.getParameter("arguments");
 			var sPaymentRunId = oArguments.paymentRunId;
-		
+
 			this._sPaymentRunId = sPaymentRunId;
 			this.onRead(sPaymentRunId);
 		},
