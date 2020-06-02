@@ -10,22 +10,22 @@
 								<content>
 									<Title text="Payment runs" level="H2"/>
 									<ToolbarSpacer/>
-									<SearchField placeholder="{i18n>FilterOnID}" search="onFilterID" width="15rem"/>
+									<SearchField placeholder="{i18n>FilterOnID}" id="searchField" search=".onSearch" width="15rem"/>
 								</content>
 							</OverflowToolbar>
 						</headerToolbar>
 						<columns>
 							<Column width="12em">
-								<Text text="Identification"/>
+								<Text text="{i18n>Laufi}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Run On"/>
+								<Text text="{i18n>Laufd}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Paying co. code"/>
+								<Text text="{i18n>Zbukr}"/>
 							</Column>
 							<Column demandPopin="true">
-								<Text text="Vendor"/>
+								<Text text="{i18n>Lifnr}"/>
 							</Column>
 						</columns>
 						<items>

@@ -4,8 +4,9 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"sap/m/ToolbarSpacer"
-], function (Controller, Dialog, JSONModel, Filter, FilterOperator, ToolbarSpacer) {
+	"sap/m/ToolbarSpacer",
+	"sap/ui/model/FilterType",
+], function (Controller, Dialog, JSONModel, Filter, FilterOperator, FilterType, ToolbarSpacer) {
 	"use strict";
 
 	return Controller.extend("dwp.sapui5_project_YFI03_YFI04.controller.Home", {
@@ -60,7 +61,42 @@ sap.ui.define([
 			
 			oBinding.filter(aFilters);
 
-		}
+		},
+		
+		onSearch : function (oEvent) {
+			
+			
+			//create filter
+			
+			var filters = [];
+			var query = oEvent.getParameter('query');
+			
+			//check if query contains value
+			
+			if(query && query.length > 0){
+				var filter = new Filter("Laufi", FilterOperator.EQ, query);
+				filters.push(filter);
+			}
+			
+			
+			//update table
+			
+			var oTable = this.getView().byId('idPaymentRunTable');
+			var binding = oTable.getBinding('items');
+			binding.filter(filters);
+			
+			// console.log('Ik zit erin')
+			// var oView = this.getView(),
+			// 	sValue = oView.byId("searchField").getValue(),
+			// 	oFilter = new Filter("Laufi", FilterOperator.Contains, sValue);
+			// 	console.log('filter: ' + sValue)
+				
+			// 	var oTable = oView.byId('idPaymentRunTable');
+			// 	console.log(oFilter)
+			// 	console.log(oTable.getBinding('items'))
+			// 	oTable.getBinding("items").filter(oFilter, FilterType.Application);
+		},
+
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
