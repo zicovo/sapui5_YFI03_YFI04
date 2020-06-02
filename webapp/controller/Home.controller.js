@@ -27,6 +27,28 @@ sap.ui.define([
 			// 	cellFilterOn:false
 			// }),"ui");
 
+
+			var oViewModel;
+			// Model used to manipulate control states
+			oViewModel = new JSONModel({
+				paymentRunsTableTitle : this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("tableTitle")
+			});
+			this.getView().setModel(oViewModel, "homeView");
+		},
+		
+		onUpdateFinished:function(oEvent){
+			var sTitle,
+				oTable = oEvent.getSource(),
+				iTotalItems = oEvent.getParameter("total");
+				
+			// only update the counter if the length is final and
+			// the table is not empty
+			if (iTotalItems && oTable.getBinding("items").isLengthFinal()) {
+				sTitle =this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("tableTitleCount", [iTotalItems]);
+			} else {
+				sTitle = this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("tableTitle");
+			}
+			this.getView().getModel("homeView").setProperty("/paymentRunsTableTitle", sTitle);
 		},
 
 		pressDialog: null,

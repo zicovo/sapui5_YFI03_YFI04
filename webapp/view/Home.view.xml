@@ -4,11 +4,12 @@
 		<pages>
 			<Page title="{i18n>YFIO3Title}">
 				<content>
-					<Table id="idPaymentRunTable" inset="false" items="{ path: '/payment_runSet', sorter: { path: 'Laufi' } }">
+					<Table id="idPaymentRunTable" inset="false" items="{ path: '/payment_runSet', sorter: { path: 'Laufi' } }" growing="true" growingScrollToLoad="true"
+						updateFinished=".onUpdateFinished" busyIndicatorDelay="0">
 						<headerToolbar>
 							<OverflowToolbar>
 								<content>
-									<Title text="Payment runs" level="H2"/>
+									<Title text="{homeView>/paymentRunsTableTitle}" level="H3"/>
 									<ToolbarSpacer/>
 									<SearchField placeholder="{i18n>FilterOnID}" id="searchField" search=".onSearch" width="15rem"/>
 								</content>
@@ -18,7 +19,8 @@
 							<Column width="12em">
 								<Text text="{i18n>Laufi}"/>
 							</Column>
-							<Column demandPopin="true">
+							<Column demandPopin="true"
+									minScreenWidth="Tablet">
 								<Text text="{i18n>Laufd}"/>
 							</Column>
 							<Column demandPopin="true">
