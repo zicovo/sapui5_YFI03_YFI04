@@ -18,20 +18,12 @@ sap.ui.define([
 		},
 
 		onYFI04: function () {
-			//MessageToast.show("Oops! Not implemented yet!²");
-			// this.getOwnerComponent().getRouter().navTo("Detail", {
-			// 	paymentRunId: oPayment_run.Laufi
-			// });
 			var oEntry = {};
 
 			oEntry.Laufi = $.sap.paymentRunId;
 			// oEntry.Laufd = $.sap.paymentRunDate;
 			// oEntry.Revreason = this.getView().byId("ReversalReason").getSelectedKey();
 			let Revreason = this.getView().byId("ReversalReason").getSelectedKey();
-
-			console.log("YFI04 ID: " + oEntry.Laufi);
-			// console.log("YFI04 Date: " + oEntry.Laufd);
-			// console.log("YFI04 Reversal Reason: " + oEntry.Revreason);
 
 			var that = this;
 
@@ -42,9 +34,6 @@ sap.ui.define([
 					method: "PUT",
 					success: function (odata, response) {
 						MessageToast.show("Successfully reversed payment run! Returning to home...");
-						console.log("Success in YFI04: ");
-						console.log(odata);
-						console.log(response);
 						setTimeout(
 							() => {
 								that.getOwnerComponent().getRouter().navTo("Home");
@@ -79,8 +68,6 @@ sap.ui.define([
 					var oModel_PaymentRun = new JSONModel();
 
 					oModel_PaymentRun.setData(oData);
-
-					console.log(oModel_PaymentRun)
 
 					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
 					$.sap.paymentRunDate = oModel_PaymentRun.oData.Laufd;

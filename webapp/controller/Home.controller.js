@@ -18,15 +18,6 @@ sap.ui.define([
 		 */
 
 		onInit: function () {
-			// var oView=this.getView();
-
-			// var oJSONModel = this.initSampleDataModel();
-			// oView.setModel(new JSONModel({
-			// 	globalFilter:"",
-			// 	availabilityFilterOn:false,
-			// 	cellFilterOn:false
-			// }),"ui");
-
 
 			var oViewModel;
 			// Model used to manipulate control states
@@ -58,33 +49,12 @@ sap.ui.define([
 			var context = oEvent.getSource().getBindingContext();
 			var oPayment_run = context.getObject(context.getPath());
 
-			console.log(oPayment_run.Laufi);
-
 			this.getOwnerComponent().getRouter().navTo("Detail", {
 				paymentRunId: oPayment_run.Laufi
 			});
 
 			// }
 		},
-		onFilterID: function (oEvent) {
-			var aFilters = [];
-			var sQuery = oEvent.getParameter("query");
-			console.log(oEvent);
-			console.log(this.getView().getModel());
-			if (sQuery && sQuery.length > 0) {
-				var oFilter = new Filter("Laufi",FilterOperator.Contains, sQuery);
-				aFilters.push(oFilter);
-			}
-			//create table binding
-			var oTable = this.getView().byId("idPaymentRunTable");
-			console.log(oTable);
-			var oBinding = oTable.getBinding("items"); 
-			console.log(oBinding);
-			
-			oBinding.filter(aFilters);
-
-		},
-		
 		onSearch : function (oEvent) {
 			
 			
@@ -106,17 +76,6 @@ sap.ui.define([
 			var oTable = this.getView().byId('idPaymentRunTable');
 			var binding = oTable.getBinding('items');
 			binding.filter(filters);
-			
-			// console.log('Ik zit erin')
-			// var oView = this.getView(),
-			// 	sValue = oView.byId("searchField").getValue(),
-			// 	oFilter = new Filter("Laufi", FilterOperator.Contains, sValue);
-			// 	console.log('filter: ' + sValue)
-				
-			// 	var oTable = oView.byId('idPaymentRunTable');
-			// 	console.log(oFilter)
-			// 	console.log(oTable.getBinding('items'))
-			// 	oTable.getBinding("items").filter(oFilter, FilterType.Application);
 		},
 
 

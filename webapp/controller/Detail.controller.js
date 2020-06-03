@@ -19,42 +19,37 @@ sap.ui.define([
 			$.sap.paymentRunId = 0;
 
 			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
-			
-			
+
 			var oViewModel;
 			// Model used to manipulate control states
 			oViewModel = new JSONModel({
-				paymentRunTitle : this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("paymentRunTitle")
+				paymentRunTitle: this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("paymentRunTitle")
 			});
 			this.getView().setModel(oViewModel, "detailView");
-			
 
 		},
 
 		onYFI03: function () {
-			// var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			// oRouter.navTo("XMLDeleteResult");
-			// MessageToast.show("Oops! Not implemented yet!");
-			
+			var that = this;
 			this.getOwnerComponent().getModel().remove("/payment_runSet('" + $.sap.paymentRunId + "')", {
-				method : "DELETE",
-				success: function(odata, response){
-					if(odata){
-						console.log("Successful ahjaaaaaaaaaa");
-						console.log("This is odata: ");
-						console.log(odata);
-						// MessageBox.success("Deleted successfully.");
-					}else{
-						console.log("Unsuccessful ahjaaaa, wa dacht ge nu!");
-						// MessageBox.error("Unable to delete.");
-					}
-				} 
-		
+				method: "DELETE",
+				success: function (odata, response) {
+					console.log("Successful");
+					MessageToast.show("Deleted successfully!");
+					setTimeout(
+						() => {
+							that.getOwnerComponent().getRouter().navTo("XMLDeleteResult", {
+								paymentRunId: $.sap.paymentRunId
+							});
+						}, 1000
+					);
+				},
+				error: function (e) {
+					console.log("Unsuccessful");
+					MessageToast.show("Unable to delete.");
+				}
 			});
-			
-			this.getOwnerComponent().getRouter().navTo("XMLDeleteResult", {
-				paymentRunId: $.sap.paymentRunId
-			});
+
 		},
 
 		onRouteMatched: function (oEvent) {
@@ -75,14 +70,9 @@ sap.ui.define([
 					var oModel_PaymentRun = new JSONModel();
 
 					oModel_PaymentRun.setData(oData);
-					console.log("Odata: " + JSON.stringify(oData))
 
-					console.log(oModel_PaymentRun)
-					
 					$.sap.paymentRunId = oModel_PaymentRun.oData.Laufi;
 					$.sap.paymentRunDate = oModel_PaymentRun.oData.Laufd;
-					console.log($.sap.paymentRunId);
-					console.log($.sap.paymentRunDate);
 					that.displayData(oModel_PaymentRun.oData, that);
 
 				},
