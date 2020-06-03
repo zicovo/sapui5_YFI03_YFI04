@@ -21,6 +21,13 @@ sap.ui.define([
 			this.getOwnerComponent().getRouter().getRoute("Detail").attachMatched(this.onRouteMatched, this);
 			
 			
+			var oViewModel;
+			// Model used to manipulate control states
+			oViewModel = new JSONModel({
+				paymentRunTitle : this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("paymentRunTitle")
+			});
+			this.getView().setModel(oViewModel, "detailView");
+			
 
 		},
 

@@ -5,26 +5,28 @@
 		<pages>
 			<Page>
 				<content>
-					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>DetailTitle}" labelSpanXL="3" labelSpanL="3"
-						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
-						columnsL="1" columnsM="1" singleContainerFullSize="false">
-						<f:content>
-							<Label text="{i18n>Laufi}"/>
-							<Text id="txtLaufi"/>
-							<Label text="{i18n>Laufd}"/>
-							<Text id="txtLaufd"/>
-							<Label text="{i18n>Zbukr}"/>
-							<Text id="txtZbukr"/>
-							<Label text="{i18n>Lifnr}"/>
-							<Text id="txtLifnr"/>
-							<Label text="{i18n>Kunnr}"/>
-							<Text id="txtKunnr"/>
-							<Label text="{i18n>Empfg}"/>
-							<Text id="txtEmpfg"/>
-							<Label text="{i18n>Vblnr}"/>
-							<Text id="txtVblnr"/>
-						</f:content>
-					</f:SimpleForm>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>DetailTitle}" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="{i18n>Laufi}"/>
+								<Text id="txtLaufi"/>
+								<Label text="{i18n>Laufd}"/>
+								<Text id="txtLaufd"/>
+								<Label text="{i18n>Zbukr}"/>
+								<Text id="txtZbukr"/>
+								<Label text="{i18n>Lifnr}"/>
+								<Text id="txtLifnr"/>
+								<Label text="{i18n>Kunnr}"/>
+								<Text id="txtKunnr"/>
+								<Label text="{i18n>Empfg}"/>
+								<Text id="txtEmpfg"/>
+								<Label text="{i18n>Vblnr}"/>
+								<Text id="txtVblnr"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
 				</content>
 				<footer>
 					<Toolbar>
