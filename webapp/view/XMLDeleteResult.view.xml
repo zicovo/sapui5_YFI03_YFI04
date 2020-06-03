@@ -38,7 +38,9 @@
 				<footer>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button type="Emphasized" text="Reverse FICO-postings" press="onYFI04"/>
+						<Button type="Emphasized" text="Reverse FICO-postings" press="onYFI04">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</Button>
 					</Toolbar>
 				</footer>
 			</Page>

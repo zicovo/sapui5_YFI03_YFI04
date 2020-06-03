@@ -29,7 +29,9 @@
 				<footer>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Button type="Emphasized" text="Delete payment-XML files" press="onYFI03"/>
+						<Button type="Emphasized" text="Delete payment-XML files" press="onYFI03">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</Button>
 					</Toolbar>
 				</footer>
 			</Page>
