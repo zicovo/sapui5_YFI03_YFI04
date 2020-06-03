@@ -5,35 +5,37 @@
 		<pages>
 			<Page title="{i18n>YFI04Title}">
 				<content>
-					<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>DetailTitle}" labelSpanXL="3" labelSpanL="3"
-						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
-						columnsL="1" columnsM="1" singleContainerFullSize="false">
-						<f:content>
-							<Label text="{i18n>Laufi}"/>
-							<Text id="txtLaufi"/>
-							<Label text="{i18n>Laufd}"/>
-							<Text id="txtLaufd"/>
-							<Label text="{i18n>Zbukr}"/>
-							<Text id="txtZbukr"/>
-							<Label text="{i18n>Lifnr}"/>
-							<Text id="txtLifnr"/>
-							<Label text="{i18n>Kunnr}"/>
-							<Text id="txtKunnr"/>
-							<Label text="{i18n>Empfg}"/>
-							<Text id="txtEmpfg"/>
-							<Label text="{i18n>Vblnr}"/>
-							<Text id="txtVblnr"/>
-							<Label text="Reversal reason"/>
-							<ComboBox required="true" tooltip="Select Reversal Reason" items="" width="30rem" id="ReversalReason">
-								<core:Item key="01" text="Reversal in current period"/>
-								<core:Item key="02" text="Reversal in closed period"/>
-								<core:Item key="03" text="Actual reversal in current period"/>
-								<core:Item key="04" text="Actual reversal in closed period"/>
-								<core:Item key="05" text="Accrual/deferral postings"/>
-							</ComboBox>
-							<Text id="requiredErrorMsg" text=""/>
-						</f:content>
-					</f:SimpleForm>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>DetailTitle}" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="{i18n>Laufi}"/>
+								<Text id="txtLaufi"/>
+								<Label text="{i18n>Laufd}"/>
+								<Text id="txtLaufd"/>
+								<Label text="{i18n>Zbukr}"/>
+								<Text id="txtZbukr"/>
+								<Label text="{i18n>Lifnr}"/>
+								<Text id="txtLifnr"/>
+								<Label text="{i18n>Kunnr}"/>
+								<Text id="txtKunnr"/>
+								<Label text="{i18n>Empfg}"/>
+								<Text id="txtEmpfg"/>
+								<Label text="{i18n>Vblnr}"/>
+								<Text id="txtVblnr"/>
+								<Label text="Reversal reason"/>
+								<ComboBox required="true" tooltip="Select Reversal Reason" items="" width="30rem" id="ReversalReason">
+									<core:Item key="01" text="Reversal in current period"/>
+									<core:Item key="02" text="Reversal in closed period"/>
+									<core:Item key="03" text="Actual reversal in current period"/>
+									<core:Item key="04" text="Actual reversal in closed period"/>
+									<core:Item key="05" text="Accrual/deferral postings"/>
+								</ComboBox>
+								<Text id="requiredErrorMsg" text=""/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
 				</content>
 				<footer>
 					<Toolbar>
